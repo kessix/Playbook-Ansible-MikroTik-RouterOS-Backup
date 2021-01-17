@@ -12,7 +12,7 @@ Uma dica!! Antes de tudo, crie o repositório e logo após clone o mesmo no serv
 ```bash
 $ ssh-keygen -t rsa -b 2048 -C "kessix@example.com"
 ```
-2. As chames ficam armazenadas dentro do diretório home do usuário logado:
+2. As chaves ficam armazenadas dentro do diretório home do usuário logado:
 ```bash
 ~/.ssh/id_rsa (privada)
 ~/.ssh/id_rsa.pub (pública)
