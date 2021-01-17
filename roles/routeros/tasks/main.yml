@@ -1,0 +1,15 @@
+# Arquivo core 
+# Esse arquivo contém as tasks que de fato realizaram o backup
+
+- name: Exportando a Configuracao do Router
+  routeros_command:
+    commands: /export
+    wait_for: result[0] contains ''
+  register: saida
+  
+# Regex para remover a primeira linha com a hora do RouterOS, ao ler essa linha o Ansible acredita que a configuração foi alterada.
+# Farei isso para que o processo de backup não senha realizado com falso positivo da hora.
+
+- name: Configurando Variavel de Saida
+  set_fact:
+    ansible_net_config: '{{ saida.stdout[0] | regex_replace("# \w+/\d+/\d+ \d+:\d+:\d+.*\n" , "") }}'

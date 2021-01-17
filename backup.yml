@@ -1,0 +1,20 @@
+---
+- name: Backup Mikrotik RouterOS
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+
+  - name: Incluindo Configuracao de Roles
+    include_role:
+      name: "{{ ansible_network_os }}"
+
+  - name: Criando Arquivo de Configuracao do Router
+    copy:
+      content: "{{ ansible_net_config }}"
+      # Diretório de destino dos arquivos com o backup dos RouterOS MikroTiks
+      dest: /home/backup/{{ inventory_hostname }}
+ 
+  - name: git push
+    # módulo que irá chamar o script em shell para realizar o git commit/push dos arquivos 
+    shell: 'bash /root/script.sh'

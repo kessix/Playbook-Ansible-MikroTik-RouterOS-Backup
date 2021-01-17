@@ -1,0 +1,23 @@
+all:
+  hosts:
+    grupos_de_hosts_A:
+      ansible_host: [IP]
+    grupos_de_hosts_B:
+      ansible_host: [IP]
+      
+  vars:
+    # Essa é a configuração global, a mesma pode ser sobrescita de forma local dentro do campo ansible_host: [IP], caso necessário.
+    # Especificando a plataforma e o tipo de conexão
+    ansible_connection: network_cli
+    ansible_network_os: routeros 
+    
+    # Ansible pedirá privilegios ao equipamento
+    ansible_become: yes
+    ansible_become_method: enable
+    
+    # Se a rede possuir servidor Radius e o mesmo estiver configurado nos equipamentos crie um usuário para o Ansible
+    # O código +cet512w foi usado para corrigir um erro de conexão com o terminal do RouterOS
+    ansible_user: [usuario]+cet512w
+    ansible_ssh_pass: [Senha]
+    ansible_port: 22
+
