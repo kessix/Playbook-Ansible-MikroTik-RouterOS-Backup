@@ -7,8 +7,9 @@ A parte mais legal desse playbook é que ao final do playbook, a última task do
 Para que no momento do push, o Git use a chave privada para se autenticar no repositório faça a seguinte configuração:
 
 Uma dica!! Antes de tudo, crie o repositório e logo após clone o mesmo no servidor.
-```bash
+----------
 1. Gerar as chaves ssh
+```bash
 $ ssh-keygen -t rsa -b 2048 -C "kessix@example.com"
 ```
 2. As chames ficam armazenadas dentro do diretório home do usuário logado:
