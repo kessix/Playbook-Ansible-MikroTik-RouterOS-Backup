@@ -7,14 +7,15 @@ A parte mais legal desse playbook é que ao final do playbook, a última task do
 Para que no momento do push, o Git use a chave privada para se autenticar no repositório faça a seguinte configuração:
 
 Uma dica!! Antes de tudo, crie o repositório e logo após clone o mesmo no servidor.
-
+```bash
 1. Gerar as chaves ssh
 $ ssh-keygen -t rsa -b 2048 -C "kessix@example.com"
-
+```
 2. As chames ficam armazenadas dentro do diretório home do usuário logado:
+```bash
 ~/.ssh/id_rsa (privada)
 ~/.ssh/id_rsa.pub (pública)
-
+```
 3. Crie o arquivo ~/.ssh/config
 A configuração pode mudar dependendo do seu repositório.
 Adionce o conteúdo abaixo e mude os parâmetros de acordo com seu repositório:
@@ -25,15 +26,16 @@ Host gitrepo.com
   IdentityFile ~/.ssh/gitrepo_com_rsa (essa linha deve apontar para a chave privada)
  ```
 4. Dida ao cliente SSH para apontar para a chave privada:
+```bash
 $ eval $(ssh-agent -s)
 $ ssh-add ~/.ssh/id_rsa (privada)
-
+```
 5. Adicione a chave pública na plataforma do seu repositório.
 Esses tutoriais podem ajudar.
 GitHub: https://www.inmotionhosting.com/support/server/ssh/how-to-add-ssh-keys-to-your-github-account/
 GitLab: https://dev.to/sndrx/how-to-set-up-an-ssh-key-and-use-it-in-gitlab--42p1
 
 6. Teste a cominicação entre o agente ssh e o repositório
-
+```bash
 $ ssh -Tvvv git@gitrepo.com
-  
+```
