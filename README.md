@@ -18,12 +18,12 @@ $ ssh-keygen -t rsa -b 2048 -C "kessix@example.com"
 3. Crie o arquivo ~/.ssh/config
 A configuração pode mudar dependendo do seu repositório.
 Adionce o conteúdo abaixo e mude os parâmetros de acordo com seu repositório:
-
+```bash
 - GitRepo
 Host gitrepo.com
   Preferredauthentications publickey
   IdentityFile ~/.ssh/gitrepo_com_rsa (essa linha deve apontar para a chave privada)
- 
+ ```
 4. Dida ao cliente SSH para apontar para a chave privada:
 $ eval $(ssh-agent -s)
 $ ssh-add ~/.ssh/id_rsa (privada)
