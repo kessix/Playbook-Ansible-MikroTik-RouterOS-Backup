@@ -32,9 +32,7 @@ $ eval $(ssh-agent -s)
 $ ssh-add ~/.ssh/id_rsa (privada)
 ```
 5. Adicione a chave pública na plataforma do seu repositório.
-Esses tutoriais podem ajudar.
-GitHub: https://www.inmotionhosting.com/support/server/ssh/how-to-add-ssh-keys-to-your-github-account/
-GitLab: https://dev.to/sndrx/how-to-set-up-an-ssh-key-and-use-it-in-gitlab--42p1
+- Consulte a documentação do reposótio e veja como fazer esse procedimento.
 
 6. Teste a cominicação entre o agente ssh e o repositório
 ```bash
