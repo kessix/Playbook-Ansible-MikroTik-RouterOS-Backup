@@ -1,10 +1,9 @@
 ---
 - name: Backup Mikrotik RouterOS
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   
   tasks:
-
   - name: Incluindo Configuracao de Roles
     include_role:
       name: "{{ ansible_network_os }}"
