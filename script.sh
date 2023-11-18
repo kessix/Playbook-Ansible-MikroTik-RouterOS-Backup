@@ -22,5 +22,5 @@ git config --global user.name "Usuario Git"
 git config --global user.email "E-mail configurado no repositório"
 git add .
 git commit -m $commitName
-git push -u origin master
+git push -u origin main
 
